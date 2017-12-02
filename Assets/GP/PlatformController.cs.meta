@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6cb8976262e1c454e9f389ce5cf38560
+timeCreated: 1511758335
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - groundCheck: {instanceID: 0}
+  - NoFlip: {instanceID: 0}
+  - SRenderer: {instanceID: 0}
+  - move0: {fileID: 21300000, guid: 9db95dd448f59f34bb31e88907fed0de, type: 3}
+  - move1: {fileID: 21300000, guid: bf7c044bd36714d4f8817802071b2e86, type: 3}
+  - move2: {fileID: 21300000, guid: 1df71af4717da45478cb13a8628ddc4b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
