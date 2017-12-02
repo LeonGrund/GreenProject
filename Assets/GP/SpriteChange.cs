@@ -6,14 +6,28 @@ public class SpriteChange : MonoBehaviour {
 	public Sprite[] Images;
 	public SpriteRenderer SRendere;
 	public int startNum = 0;
+	public float ResetDelay = 0f;
 
 	void OnCollisionEnter2D (Collision2D other)
 	{
 			if (other.gameObject.CompareTag(OnType))
 			{
-				// cycle through images
-				SRendere.sprite = Images[startNum];
-				startNum = (startNum + 1) % Images.Length;
+				if (ResetDelay > 0f)
+				{
+					SRendere.sprite = Images[startNum+1];
+					Invoke("Reset", ResetDelay);
+				}
+				else
+				{
+					// cycle through images
+					SRendere.sprite = Images[startNum];
+					startNum = (startNum + 1) % Images.Length;
+				}
 			}
+	}
+
+	void Reset ()
+	{
+		SRendere.sprite = Images[startNum];
 	}
 }

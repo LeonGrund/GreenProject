@@ -9,7 +9,7 @@ public class PlatformController : MonoBehaviour {
     public float moveForce = 18f;
     public float maxSpeed = 1f;     // if player goes too fast we force him down to maxSpeed
     public float jumpForce = 280f;
-    public float[] springForce;
+
     private bool flag = false;                  // makes sure that you can not jump more than twice in a row
     public Transform groundCheck; // check if player is on the ground
 
@@ -30,15 +30,28 @@ public class PlatformController : MonoBehaviour {
     public float spriteDelay = .3f;
     private Sprite lastSprite;
 
+    //Tag: SpringMulti
+    public float[] springForce;
     private int nextSpring = 0;
+
+    //Tag: SpringSingle
+    public float springForceX = -20f;
+    public float springForceY = 800f;
+
     void OnCollisionEnter2D (Collision2D other)
     {
-        if (other.gameObject.CompareTag("Spring"))
+        if (other.gameObject.CompareTag("SpringMulti"))
         {
 
           rb2d.AddForce(new Vector2(0f,springForce[nextSpring])); // 0 on x and jump on y axis
           nextSpring = (nextSpring + 1) % springForce.Length;
         }
+
+        if (other.gameObject.CompareTag("SpringSingle"))
+        {
+          rb2d.AddForce(new Vector2(springForceX, springForceY));
+        }
+
     }
 
 	// Use this for initialization

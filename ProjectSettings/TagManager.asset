@@ -14,8 +14,8 @@ TagManager:
   - ExplosionFX
   - HealthBar
   - EnemyShot
-  - Spring
-  - New Tag
+  - SpringMulti
+  - SpringSingle
   layers:
   - Default
   - TransparentFX
